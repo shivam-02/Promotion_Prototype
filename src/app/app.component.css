@@ -17,6 +17,7 @@ md-sidenav-layout {
 
 .toolbar{
   background-color: #007ab4;
+ 
 
 }
 
@@ -26,4 +27,20 @@ md-sidenav-layout {
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:   white;
+}
+
+.bannerToolbar
+{
+  background-color: white;
+  font-weight: bold;
+  font-size:25px;
+  
+  
+}
+
+.button-row
+{
+  
+  background-color: white;
+  font-weight: bold;
 }

@@ -35,8 +35,18 @@
     </md-nav-list>
   </md-sidenav>
 
-  <main>
-    <app-upcoming-promotions></app-upcoming-promotions>
+
+  <main> 
+    <md-toolbar fullscreen class="bannerToolbar">Promotions Management </md-toolbar>
+    
+       <div class="button-row">
+    <button md-raised-button>Add Promotion</button>
+      </div>
+   
+    <app-active-promotions></app-active-promotions>
+    
+     <app-upcoming-promotions></app-upcoming-promotions>
+
   </main>
 
 </md-sidenav-layout>

@@ -1,0 +1,91 @@
+<div class="card-container">
+  <md-card>
+    <md-card-subtitle style="font-weight:bold;color:black;font-size:16px">
+      Active Promotions
+    </md-card-subtitle>
+
+    <md-card-content>
+
+      <p-dataTable [value]="promotions">
+    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header">
+        <template  let-row="rowData" pTemplate>
+           <span *ngIf="col.field=='promotion_name'" style="color:black"><a href="#">{{row[col.field]}}</a></span>
+            <span *ngIf="col.field=='duration'" style="color:black">
+
+              <span><p>{{row[col.field]}}% done </p></span>
+             
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} >
+                
+      </md-progress-bar>
+      </span>
+       <span *ngIf="col.field=='profit_forecast'" style="color:black">
+
+              <span><p>{{row[col.field]}}% achieved </p></span>
+             
+              <span *ngIf="row[col.field]<50">
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="warn"  >  </md-progress-bar>
+                </span>
+
+                <span *ngIf="row[col.field]>=50 && row[col.field]<80" >
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="accent"  >  </md-progress-bar>
+                </span>
+
+
+                <span *ngIf="row[col.field]>=80">
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="primary"  >  </md-progress-bar>
+                </span>
+    
+                
+     
+      </span>
+       <span *ngIf="col.field=='revenue_forecast'" style="color:black">
+
+              <span><p>{{row[col.field]}}% achieved </p></span>
+
+                 <span *ngIf="row[col.field]<50">
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="warn"  >  </md-progress-bar>
+                </span>
+
+                <span *ngIf="row[col.field]>=50 && row[col.field]<80" >
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="accent"  >  </md-progress-bar>
+                </span>
+
+
+                <span *ngIf="row[col.field]>=80">
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="primary"  >  </md-progress-bar>
+                </span>
+    
+      </span>
+       <span *ngIf="col.field=='unit_forecast'" style="color:black">
+
+              <span><p>{{row[col.field]}}% achieved </p></span>
+             
+               <span *ngIf="row[col.field]<50">
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="warn"  >  </md-progress-bar>
+                </span>
+
+                <span *ngIf="row[col.field]>=50 && row[col.field]<80" >
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="accent"  >  </md-progress-bar>
+                </span>
+
+
+                <span *ngIf="row[col.field]>=80">
+              <md-progress-bar class="example-margin" mode="determinate" value={{row[col.field]}} color="primary"  >  </md-progress-bar>
+                </span>
+    
+                
+      </span>
+            
+        </template>
+
+      
+        </p-column> 
+  
+  </p-dataTable>
+
+    </md-card-content>
+
+
+  </md-card>
+
+  </div>

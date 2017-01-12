@@ -13,12 +13,14 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { UpcomingPromotionsComponent } from './upcoming-promotions/upcoming-promotions.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
+import { ActivePromotionsComponent } from './active-promotions/active-promotions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UpcomingPromotionsComponent,
-    HomeComponentComponent
+    HomeComponentComponent,
+    ActivePromotionsComponent
   ],
   imports: [
     BrowserModule,
