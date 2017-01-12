@@ -3,19 +3,28 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule} from '@angular/material';
+
+import {DataTableModule,SharedModule} from 'primeng/primeng';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { UpcomingPromotionsComponent } from './upcoming-promotions/upcoming-promotions.component';
+import { HomeComponentComponent } from './home-component/home-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UpcomingPromotionsComponent,
+    HomeComponentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    
+    DataTableModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
