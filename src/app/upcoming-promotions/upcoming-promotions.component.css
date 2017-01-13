@@ -5,9 +5,9 @@
     margin-right: 150px;
     margin-left: 80px;
 }
-
+/*/*
 @media only screen and (max-width: 700px) {
-    /* For mobile phones: */
+    /* For mobile phones: 
 .pieChart{
 
     width:100%;
@@ -17,7 +17,7 @@
 
 @media only screen and (min-width: 550px) {
     /*for tablet screens */
-    .pieChart { 
+    /*.pieChart { 
         height: 40%;
         width:  40%;
       
@@ -25,12 +25,12 @@
 }
 @media only screen and (min-width: 768px) {
     /*for desktop screens */
-    .pieChart { 
+  /*  .pieChart { 
         height: 25%;
         width:  25%;
       
 }
-}
+*/
 /*@media only screen and (min-width: 500px) {
     /*for desktop screens 
     .pieChart { 
@@ -40,7 +40,3 @@
 }
 }*/
 
-.card-container
-{
-
-}

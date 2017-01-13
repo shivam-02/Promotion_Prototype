@@ -5,7 +5,7 @@
      <md-card-subtitle style="font-weight:bold; color:black; font-size:16px;margin-left: 2% ">Upcoming Promotions</md-card-subtitle> 
      
      <div class="pieChart">
-      <p-chart type="pie" [data]="data"  ></p-chart>
+      <p-chart type="pie" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
      </div>
      <md-card-actions class="summaryButtons" style="margin-left:2%">
       <button md-button>SUBMIT</button>
@@ -18,17 +18,35 @@
      <md-card-content style="margin-left:2%;margin-right: 2%">
         
       <p-dataTable [value]="promotions" [rows]="10" [paginator]="true">
-     <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header">
-      <template *ngIf="col.field=='check_box'"  pTemplate="header">
-        <!-- <img src="../../assets/images/checkbox.png"> -->
-    </template>
+      <p-column field="check_box" >
+          <template pTemplate="body">
+          <span style="margin:auto; display:table;"> <md-checkbox></md-checkbox></span>
+          </template>
+      </p-column>
+      <p-column field="promotion_name" header="Promotion Name"  >
+          <template let-col let-promotionData="rowData" pTemplate="body">
+          <span><a href="#">{{promotionData[col.field]}}</a></span>
+          </template>
+      </p-column>
+      <p-column field="start_date" header="Start Date" ></p-column>
+      <p-column field="profit_forecast" header="Profit Forecast" ></p-column>
+      <p-column field="revenue_forecast" header="Revenue Forecast" ></p-column>
+      <p-column field="unit_forecast" header="Unit Forecast" ></p-column>
+      <p-column field="last_updated" header="Last Updated" ></p-column>
+      <p-column field="priority" header="Priority" ></p-column>
+      <p-column field="status" header="Status" hidden="true" ></p-column>
+   
+   
+   
+    <!-- <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header">
+      <template *ngIf="col.field=='status'" hidden="true"></template>
       <template *ngIf="col.field=='check_box'"  pTemplate="body">
          <span style="margin:auto; display:table;"> <md-checkbox></md-checkbox></span>
         </template>
      <template *ngIf="col.field=='promotion_name'" let-promotionData="rowData" pTemplate="body">
             <span><a href="#">{{promotionData[col.field]}}</a></span>
         </template>
-     </p-column>
+     </p-column>-->
      
      </p-dataTable>
      </md-card-content>
