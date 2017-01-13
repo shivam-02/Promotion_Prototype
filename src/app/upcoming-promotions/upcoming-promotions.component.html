@@ -2,12 +2,12 @@
      
     <md-card>
        
-     <md-card-subtitle style="font-weight:bold; color:black; font-size:16px ">Upcoming Promotions</md-card-subtitle> 
+     <md-card-subtitle style="font-weight:bold; color:black; font-size:16px;margin-left: 2% ">Upcoming Promotions</md-card-subtitle> 
      
      <div class="pieChart">
       <p-chart type="pie" [data]="data"  ></p-chart>
      </div>
-     <md-card-actions class="summaryButtons">
+     <md-card-actions class="summaryButtons" style="margin-left:2%">
       <button md-button>SUBMIT</button>
       <button md-button>APPROVE</button>
       <button md-button>REJECT</button>
@@ -15,7 +15,7 @@
       <button md-button>SUMMARY</button>
       </md-card-actions>
      
-     <md-card-content>
+     <md-card-content style="margin-left:2%;margin-right: 2%">
         
       <p-dataTable [value]="promotions" [rows]="10" [paginator]="true">
      <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header">

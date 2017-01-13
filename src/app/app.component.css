@@ -35,6 +35,7 @@ md-sidenav-layout {
   background-color: white;
   font-weight: bold;
   font-size:25px;
+  padding-left:2%
   
   
 }
@@ -44,4 +45,5 @@ md-sidenav-layout {
   
   background-color: white;
   font-weight: bold;
+  padding-left: 2%;
 }
