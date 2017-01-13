@@ -7,8 +7,8 @@
      <div class="pieChart">
       <p-chart type="pie" [data]="data"  ></p-chart>
      </div>
-     <md-card-actions>
-      <button md-button>SUBIT</button>
+     <md-card-actions class="summaryButtons">
+      <button md-button>SUBMIT</button>
       <button md-button>APPROVE</button>
       <button md-button>REJECT</button>
       <button md-button>COMPARE</button>
@@ -20,7 +20,7 @@
       <p-dataTable [value]="promotions" [rows]="10" [paginator]="true">
      <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header">
       <template *ngIf="col.field=='check_box'"  pTemplate="header">
-         <img src="../../assets/images/checkbox.png">
+        <!-- <img src="../../assets/images/checkbox.png"> -->
     </template>
       <template *ngIf="col.field=='check_box'"  pTemplate="body">
          <span style="margin:auto; display:table;"> <md-checkbox></md-checkbox></span>
