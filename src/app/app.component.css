@@ -1,0 +1,49 @@
+md-sidenav-layout {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.secondary {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: xx-small;
+}
+
+.sidenav-md-icon {
+  color: #673ab7;
+}
+
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.toolbar{
+  background-color: #007ab4;
+ 
+ 
+
+}
+
+.title{
+  content:url(../assets/images/jda_logo.png);
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:   white;
+}
+
+.bannerToolbar
+{
+  background-color: white;
+  font-weight: bold;
+  font-size:25px;
+  padding-left:2%
+  
+  
+}
+
+.button-row
+{
+  
+  background-color: white;
+  font-weight: bold;
+  padding-left: 2%;
+}
