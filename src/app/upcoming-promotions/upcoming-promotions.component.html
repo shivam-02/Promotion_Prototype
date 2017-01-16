@@ -17,7 +17,8 @@
      
      <md-card-content style="margin-left:2%;margin-right: 2%">
         
-      <p-dataTable [value]="promotions" [rows]="10" [paginator]="true">
+      <p-dataTable [value]="displayPromotions" [rows]="10" [paginator]="true" *ngIf="promotions[status]==status">
+
       <p-column field="check_box" >
           <template pTemplate="body">
           <span style="margin:auto; display:table;"> <md-checkbox></md-checkbox></span>
@@ -29,7 +30,11 @@
           </template>
       </p-column>
       <p-column field="start_date" header="Start Date" ></p-column>
-      <p-column field="profit_forecast" header="Profit Forecast" ></p-column>
+      <p-column field="profit_forecast" header="Profit Forecast" >
+          <template let-col let-promotionData="rowData" pTemplate="body">
+          <span><a href="#">{{promotionData[col.field]}}</a></span>
+          </template>
+      </p-column>
       <p-column field="revenue_forecast" header="Revenue Forecast" ></p-column>
       <p-column field="unit_forecast" header="Unit Forecast" ></p-column>
       <p-column field="last_updated" header="Last Updated" ></p-column>

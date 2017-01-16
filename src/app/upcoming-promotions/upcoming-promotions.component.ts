@@ -15,15 +15,16 @@ export class UpcomingPromotionsComponent implements OnInit {
   pendingApproval: number;
   rejected: number;
   approved: number;
-  status: string;
-
+  //status: string;
+  displayPromotions:Object[];
+  
   constructor() {
     
        this.new=0;
        this.pendingApproval=0;
        this.rejected=0;
        this.approved=0;
-       status='New';
+      
     }
 
  
@@ -42,7 +43,7 @@ export class UpcomingPromotionsComponent implements OnInit {
             {field: 'unit_forecast', header: 'Unit Forecast'},
             {field: 'last_updated', header: 'Last Updated'},
             {field: 'priority', header: 'Priority'},
-            {field:'status', header:'Status', hidden:"true"}
+            {field:'status', header:'Status'}
          ];
     this. promotions=[
          {
@@ -54,7 +55,7 @@ export class UpcomingPromotionsComponent implements OnInit {
           'unit_forecast':83,
           'last_updated':'3/12/2016',
           'priority':3,
-           'status':'Approved'
+          'status':'Approved'
 
         },
          {
@@ -148,6 +149,8 @@ export class UpcomingPromotionsComponent implements OnInit {
         }
 
     ];
+    this.displayPromotions=this.promotions;
+    console.log("display promotions"+this.displayPromotions);
    
    for(var i=0; i<this.promotions.length; i++)
    {
@@ -192,12 +195,29 @@ export class UpcomingPromotionsComponent implements OnInit {
    console.log(event);
     console.log("index of data"+event.element._index);
     if(event.element._index==0)
-    this.status='New';
+    this.getDisplayPromotions('New');
+   // this.status='New';
     else if(event.element._index==1)
-    this.status='Pending Approal';
+    this.getDisplayPromotions('Pending Approval');
+    //this.status='Pending Approal';
     else if(event.element._index==2)
-    this.status='Rejected';
+    this.getDisplayPromotions('Rejected');
+    //this.status='Rejected';
     else if(event.element._index==3)
-    this.status='Approved';
+    this.getDisplayPromotions('Approved');
+   // this.status='Approved';
+}
+
+getDisplayPromotions(status:string):void{
+  this.displayPromotions=[];
+  console.log('displayPromotions null'+this.displayPromotions);
+  var j:number=0;
+  for(var i=0; i<this.promotions.length; i++)
+   {
+    if(this.promotions[i]['status']==status)
+    {
+      this.displayPromotions[j++]=this.promotions[i];
+    }
+  }
 }
 }
