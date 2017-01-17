@@ -15,24 +15,21 @@ export class UpcomingPromotionsComponent implements OnInit {
   pendingApproval: number;
   rejected: number;
   approved: number;
-  //status: string;
   displayPromotions:Object[];
   
   constructor() {
     
-       this.new=0;
-       this.pendingApproval=0;
-       this.rejected=0;
-       this.approved=0;
-      
-    }
+       }
 
  
   
 
   ngOnInit() {
    
-  
+  this.new=0;
+  this.pendingApproval=0;
+  this.rejected=0;
+  this.approved=0;
 
    this.cols=[
             {field:'check_box'},
@@ -150,24 +147,24 @@ export class UpcomingPromotionsComponent implements OnInit {
 
     ];
     this.displayPromotions=this.promotions;
-    console.log("display promotions"+this.displayPromotions);
-   
-   for(var i=0; i<this.promotions.length; i++)
-   {
-    if(this.promotions[i]['status']=='New')
-     this.new++;
-     else if(this.promotions[i]['status']=='Pending Approval')
-     this.pendingApproval++;
-     else if(this.promotions[i]['status']=='Rejected')
-     this.rejected++;
-     else if(this.promotions[i]['status']=='Approved')
-     this.approved++;
-    }
+  
+   for(let i=0; i<this.promotions.length; i++)
+     {
+      if(this.promotions[i]['status']==='New'){
+      this.new++;
+      }
+      else if(this.promotions[i]['status']==='Pending Approval'){
+      this.pendingApproval++;
+      }
+      else if(this.promotions[i]['status']==='Rejected'){
+      this.rejected++;
+      }
+      else if(this.promotions[i]['status']==='Approved'){
+      this.approved++;
+      }
+     }
 
-    console.log("new"+this.new);
-    console.log("pending"+this.pendingApproval);
-    console.log("rejected"+this.rejected);
-    console.log("approved"+this.approved);
+   
 
      this.data = {
             labels: ['New','Pending Approval','Rejected','Approved'],
@@ -175,49 +172,53 @@ export class UpcomingPromotionsComponent implements OnInit {
                 {
                     data: [this.new, this.pendingApproval, this.rejected, this.approved],
                     backgroundColor: [
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56",
-                        "#808080"
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#808080'
                     ],
                     hoverBackgroundColor: [
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56",
-                        "#808080"
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#808080'
                     ]
                 }]    
             };
 
-  }
-
- selectData(event) {
-   console.log(event);
-    console.log("index of data"+event.element._index);
-    if(event.element._index==0)
-    this.getDisplayPromotions('New');
-   // this.status='New';
-    else if(event.element._index==1)
-    this.getDisplayPromotions('Pending Approval');
-    //this.status='Pending Approal';
-    else if(event.element._index==2)
-    this.getDisplayPromotions('Rejected');
-    //this.status='Rejected';
-    else if(event.element._index==3)
-    this.getDisplayPromotions('Approved');
-   // this.status='Approved';
 }
+
+ selectData(event){
+   
+    switch(event.element._index)
+    {
+      case 0:
+      this.getDisplayPromotions('New');
+      break;
+      case 1:
+      this.getDisplayPromotions('Pending Approval');
+      break; 
+      case 2:
+      this.getDisplayPromotions('Rejected');
+      break;
+      case 3:
+      this.getDisplayPromotions('Approved');
+      break;
+    }
+
+  
+  }
 
 getDisplayPromotions(status:string):void{
   this.displayPromotions=[];
-  console.log('displayPromotions null'+this.displayPromotions);
-  var j:number=0;
-  for(var i=0; i<this.promotions.length; i++)
-   {
-    if(this.promotions[i]['status']==status)
+  let j=0;
+  for(let i=0; i<this.promotions.length; i++)
     {
+    if(this.promotions[i]['status']===status)
+     {
       this.displayPromotions[j++]=this.promotions[i];
-    }
+     } 
   }
 }
+ 
 }

@@ -1,4 +1,11 @@
-.card-container
-{
+.subtitle{
 
+    font-weight:bold;
+    color:black;
+    font-size:16px; 
+    margin-left:2%;
+}
+
+.cardContent{
+    margin-left: 2%
 }

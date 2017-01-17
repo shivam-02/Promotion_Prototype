@@ -6,16 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./active-promotions.component.css']
 })
 export class ActivePromotionsComponent implements OnInit {
-
-  
-
   cols:any[];
   promotions:Object[];
-
-
-
- 
-
   constructor() {
    
    }
