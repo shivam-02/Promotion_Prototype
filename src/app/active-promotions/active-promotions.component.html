@@ -1,10 +1,10 @@
 <div class="card-container">
   <md-card>
-    <md-card-subtitle class="subtitle">
+    <md-card-subtitle class="activePromotionsSubtitle">
       Active Promotions
     </md-card-subtitle>
 
-    <md-card-content class="cardContent">
+    <md-card-content class="activePromotionsCardContent">
 
       <p-dataTable [value]="promotions">
     <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header">
