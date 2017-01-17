@@ -8,7 +8,7 @@ md-sidenav-layout {
 }
 
 .sidenav-md-icon {
-  color: #673ab7;
+  color: #007ab4;
 }
 
 .example-fill-remaining-space {
@@ -46,4 +46,8 @@ md-sidenav-layout {
   background-color: white;
   font-weight: bold;
   padding-left: 2%;
+}
+
+.searchIcon{
+  color:white;
 }

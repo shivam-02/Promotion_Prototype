@@ -2,8 +2,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
+import { MaterialModule} from '@angular/material';
 import { UpcomingPromotionsComponent } from './upcoming-promotions.component';
+import { PaginatorModule } from 'primeng/primeng';
+import { ChartModule } from 'primeng/primeng';
+import { DataTableModule, SharedModule } from 'primeng/primeng';
 
 describe('UpcomingPromotionsComponent', () => {
   let component: UpcomingPromotionsComponent;
@@ -11,7 +14,14 @@ describe('UpcomingPromotionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpcomingPromotionsComponent ]
+      declarations: [ UpcomingPromotionsComponent ],
+      imports: [
+        MaterialModule.forRoot(),
+        PaginatorModule,
+        DataTableModule, 
+        SharedModule,
+        ChartModule
+       ]
     })
     .compileComponents();
   }));
@@ -19,10 +29,11 @@ describe('UpcomingPromotionsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UpcomingPromotionsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+   
   });
 
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
-  });
+  }); 
 });
