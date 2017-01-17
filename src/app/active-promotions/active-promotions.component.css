@@ -1,4 +1,4 @@
-.subtitle{
+.activePromotionsSubtitle{
 
     font-weight:bold;
     color:black;
@@ -6,6 +6,6 @@
     margin-left:2%;
 }
 
-.cardContent{
+.activePromotionsCardContent{
     margin-left: 2%
 }

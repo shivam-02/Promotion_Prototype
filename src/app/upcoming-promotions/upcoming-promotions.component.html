@@ -2,12 +2,13 @@
      
     <md-card>
        
-     <md-card-subtitle class="subtitle">Upcoming Promotions</md-card-subtitle> 
+     <md-card-subtitle class="upcomingPromotionSubtitle">Upcoming Promotions</md-card-subtitle> 
      
-     <div class="pieChart">
+     <div class="upcomingPromotionsPieChart">
       <p-chart type="pie" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
      </div>
-     <md-card-actions class="summaryButtons">
+
+     <md-card-actions class="upcomingPromotionsSummaryButtons">
       <button md-button>SUBMIT</button>
       <button md-button>APPROVE</button>
       <button md-button>REJECT</button>
@@ -15,13 +16,13 @@
       <button md-button>SUMMARY</button>
       </md-card-actions>
      
-     <md-card-content class="cardContent">
+     <md-card-content class="upcomingPromotionsCardContent">
         
       <p-dataTable [value]="displayPromotions" [rows]="10" [paginator]="true" *ngIf="promotions[status]==status">
 
       <p-column field="check_box" >
           <template pTemplate="body">
-          <span class="checkboxSpam"> <md-checkbox></md-checkbox></span>
+          <span class="upcomingPromotionsCheckboxSpam"> <md-checkbox></md-checkbox></span>
           </template>
       </p-column>
       <p-column field="promotion_name" header="Promotion Name"  >
