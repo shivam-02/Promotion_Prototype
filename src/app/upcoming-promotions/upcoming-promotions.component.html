@@ -2,13 +2,18 @@
      
     <md-card>
        
-     <md-card-subtitle class="upcomingPromotionSubtitle">Upcoming Promotions</md-card-subtitle> 
+     <md-card-title class="upcomingPromotionTitle">Upcoming Promotions</md-card-title> 
      
      <div class="upcomingPromotionsPieChart">
       <p-chart type="pie" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
      </div>
 
-     <md-card-actions class="upcomingPromotionsSummaryButtons">
+
+
+
+     <md-card-actions class="upcomingPromotionsSummaryButtons" >
+
+
       <button md-button>SUBMIT</button>
       <button md-button>APPROVE</button>
       <button md-button>REJECT</button>

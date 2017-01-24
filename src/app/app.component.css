@@ -32,7 +32,7 @@ md-sidenav-layout {
 
 .bannerToolbar
 {
-  background-color: white;
+
   font-weight: bold;
   font-size:25px;
   padding-left:2%
@@ -43,9 +43,9 @@ md-sidenav-layout {
 .button-row
 {
   
-  background-color: white;
+
   font-weight: bold;
-  padding-left: 2%;
+  padding-left: 4%;
 }
 
 .searchIcon{

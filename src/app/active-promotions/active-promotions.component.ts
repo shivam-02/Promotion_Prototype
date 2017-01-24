@@ -17,10 +17,10 @@ export class ActivePromotionsComponent implements OnInit {
     this.cols=[
 
       {field:'promotion_name',header:'Promotion'},
-      {field:'duration',header:'Duration'},
-      {field:'profit_forecast',header:'Profit Forecast'},
-      {field:'revenue_forecast',header:'Revenue Forecast' },
-      {field:'unit_forecast',header:'Unit Forecast'}
+      {field:'startDate',header:'Start Date'},
+      {field:'endDate',header:'End Date'},
+      {header:'Status' },
+    
 
 
     ];

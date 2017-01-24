@@ -1,5 +1,6 @@
 # PromotionPrototype
 
+This is a prototype for promotions management product that Jda has developed. It is built with angular 2 and material design.
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
 
 ## Development server
