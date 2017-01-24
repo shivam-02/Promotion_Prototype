@@ -1,21 +1,21 @@
 <md-sidenav-layout fullscreen>
   <md-toolbar fullscreen class="toolbar">
     <button md-icon-button (click)="sidenav.open()">
-      <md-icon>menu</md-icon>
+      <md-icon style="color:white">menu</md-icon>
     </button>
     <span class="title"></span>
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
     
-    <md-input-container>
+    <!--<md-input-container>
     <input md-input placeholder="Search" value=""/>
    </md-input-container>
     <button md-icon-button >
     <md-icon class="searchIcon">search</md-icon>
-    </button>
+    </button>-->
    
     <button md-icon-button [md-menu-trigger-for]="menu">
-      <md-icon>more_vert</md-icon>
+      <md-icon style="color:white">more_vert</md-icon>
     </button>
     
     <md-menu x-position="before" #menu="mdMenu">
@@ -43,9 +43,7 @@
        <div class="button-row">
     <button md-raised-button>Add Promotion</button>
       </div>
-    <app-active-promotions></app-active-promotions>
-
-    <app-upcoming-promotions></app-upcoming-promotions>
+      <router-outlet></router-outlet>
 
   </main>
 

@@ -11,12 +11,16 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { UpcomingPromotionsComponent } from './upcoming-promotions/upcoming-promotions.component';
 import { ActivePromotionsComponent } from './active-promotions/active-promotions.component';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import { HomeComponent } from './home/home.component'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UpcomingPromotionsComponent,
-    ActivePromotionsComponent
+    ActivePromotionsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { ActivePromotionsComponent } from './active-promotions/active-promotions
     PaginatorModule,
     DataTableModule,
     SharedModule,
-    ChartModule
+    ChartModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
