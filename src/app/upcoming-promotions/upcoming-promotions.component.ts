@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {UpcomingPromotionsService} from './upcoming-promotions.service';
+import {Promotion} from '../shared/promotion';
 
 @Component({
   selector: 'app-upcoming-promotions',
@@ -8,16 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpcomingPromotionsComponent implements OnInit {
 
-  cols:any[];
-  promotions:Object[];
+  cols:Object[];
+  promotions:Promotion[];
   data: any;
   new: number;
   pendingApproval: number;
   rejected: number;
   approved: number;
-  displayPromotions:Object[];
+  displayPromotions:Promotion[];
   
-  constructor() {
+  constructor(private upcomingPromotionsService: UpcomingPromotionsService) {
     
        }
 
@@ -31,135 +32,24 @@ export class UpcomingPromotionsComponent implements OnInit {
   this.rejected=0;
   this.approved=0;
 
-   this.cols=[
-            {field:'check_box'},
-            {field: 'promotion_name', header: 'Promotion'},
-            {field: 'start_date', header: 'Start Date'},
-            {field: 'profit_forecast', header: 'Profit Forecast'},
-            {field: 'revenue_forecast', header: 'Revenue Forecast'},
-            {field: 'unit_forecast', header: 'Unit Forecast'},
-            {field: 'last_updated', header: 'Last Updated'},
-            {field: 'priority', header: 'Priority'},
-            {field:'status', header:'Status'}
-         ];
-    this. promotions=[
-         {
-          
-          'promotion_name':'Promo 557',
-          'start_date':'29/10/2016',
-          'profit_forecast':93,
-          'revenue_forecast':65,
-          'unit_forecast':83,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'Approved'
+   this.cols= this.upcomingPromotionsService.getColumnHeaders();
+    
+   this.promotions= this.upcomingPromotionsService.getPromotions();
 
-        },
-         {
-           
-          'promotion_name':'Promo 880',
-          'start_date':'29/10/2016',
-          'profit_forecast':55,
-          'revenue_forecast':20,
-          'unit_forecast':66,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'Approved'
-          
-        },
-         {
-          
-          'promotion_name':'Promo 990',
-          'start_date':'29/10/2016',
-          'profit_forecast':80,
-          'revenue_forecast':70,
-          'unit_forecast':44,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'Approved'
-        },
-         {
-           
-          'promotion_name':'Promo 200',
-          'start_date':'29/10/2016',
-          'profit_forecast':100,
-          'revenue_forecast':50,
-          'unit_forecast':70,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'Approved'
-        },
-        {
-           
-          'promotion_name':'Promo 208',
-          'start_date':'29/10/2017',
-          'profit_forecast':100,
-          'revenue_forecast':50,
-          'unit_forecast':70,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'New'
-        },
-        {
-           
-          'promotion_name':'Promo 888',
-          'start_date':'29/01/2017',
-          'profit_forecast':100,
-          'revenue_forecast':50,
-          'unit_forecast':70,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'New'
-        },
-        {
-           
-          'promotion_name':'Promo 212',
-          'start_date':'15/11/2016',
-          'profit_forecast':100,
-          'revenue_forecast':50,
-          'unit_forecast':70,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'Rejected'
-        },
-        {
-           
-          'promotion_name':'Promo 158',
-          'start_date':'15/11/2017',
-          'profit_forecast':100,
-          'revenue_forecast':50,
-          'unit_forecast':70,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'Pending Approval'
-        },
-          {
-           
-          'promotion_name':'Promo 158',
-          'start_date':'15/11/2017',
-          'profit_forecast':100,
-          'revenue_forecast':50,
-          'unit_forecast':70,
-          'last_updated':'3/12/2016',
-          'priority':3,
-          'status':'Pending Approval'
-        }
-
-    ];
-    this.displayPromotions=this.promotions;
+   this.displayPromotions=this.promotions;
   
    for(let i=0; i<this.promotions.length; i++)
      {
-      if(this.promotions[i]['status']==='New'){
+      if(this.promotions[i]['status']==='N'){
       this.new++;
       }
-      else if(this.promotions[i]['status']==='Pending Approval'){
+      else if(this.promotions[i]['status']==='P'){
       this.pendingApproval++;
       }
-      else if(this.promotions[i]['status']==='Rejected'){
+      else if(this.promotions[i]['status']==='R'){
       this.rejected++;
       }
-      else if(this.promotions[i]['status']==='Approved'){
+      else if(this.promotions[i]['status']==='A'){
       this.approved++;
       }
      }
@@ -189,36 +79,24 @@ export class UpcomingPromotionsComponent implements OnInit {
 }
 
  selectData(event){
-   
+    
     switch(event.element._index)
     {
       case 0:
-      this.getDisplayPromotions('New');
+      this.displayPromotions=this.upcomingPromotionsService.getDisplayPromotions('N');
       break;
       case 1:
-      this.getDisplayPromotions('Pending Approval');
+      this.displayPromotions=this.upcomingPromotionsService.getDisplayPromotions('P');
       break; 
       case 2:
-      this.getDisplayPromotions('Rejected');
+      this.displayPromotions=this.upcomingPromotionsService.getDisplayPromotions('R');
       break;
       case 3:
-      this.getDisplayPromotions('Approved');
+      this.displayPromotions=this.upcomingPromotionsService.getDisplayPromotions('A');
       break;
     }
 
   
   }
-
-getDisplayPromotions(status:string):void{
-  this.displayPromotions=[];
-  let j=0;
-  for(let i=0; i<this.promotions.length; i++)
-    {
-    if(this.promotions[i]['status']===status)
-     {
-      this.displayPromotions[j++]=this.promotions[i];
-     } 
-  }
-}
  
 }

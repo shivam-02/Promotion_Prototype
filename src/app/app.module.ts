@@ -11,6 +11,8 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { UpcomingPromotionsComponent } from './upcoming-promotions/upcoming-promotions.component';
 import { ActivePromotionsComponent } from './active-promotions/active-promotions.component';
+import {PromotionService} from './shared/promotion.service';
+import { UpcomingPromotionsService } from './upcoming-promotions/upcoming-promotions.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { ActivePromotionsComponent } from './active-promotions/active-promotions
     SharedModule,
     ChartModule
   ],
-  providers: [],
+  providers: [PromotionService, UpcomingPromotionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
