@@ -11,8 +11,13 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { UpcomingPromotionsComponent } from './upcoming-promotions/upcoming-promotions.component';
 import { ActivePromotionsComponent } from './active-promotions/active-promotions.component';
+import {ActivePromotionsService} from './active-promotions/active-promotions.service';
+import {PromotionService} from './shared/promotion.service';
+import { UpcomingPromotionsService } from './upcoming-promotions/upcoming-promotions.service';
+
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { HomeComponent } from './home/home.component'
+
 
 
 @NgModule({
@@ -33,7 +38,7 @@ import { HomeComponent } from './home/home.component'
     ChartModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PromotionService, UpcomingPromotionsService,ActivePromotionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

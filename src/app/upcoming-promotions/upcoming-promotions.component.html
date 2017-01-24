@@ -30,21 +30,18 @@
           <span class="upcomingPromotionsCheckboxSpam"> <md-checkbox></md-checkbox></span>
           </template>
       </p-column>
-      <p-column field="promotion_name" header="Promotion Name"  >
+      <p-column field="promotionName" header="Promotion Name"  >
           <template let-col let-promotionData="rowData" pTemplate="body">
           <span><a href="#">{{promotionData[col.field]}}</a></span>
           </template>
       </p-column>
-      <p-column field="start_date" header="Start Date" ></p-column>
-      <p-column field="profit_forecast" header="Profit Forecast" >
-          <template let-col let-promotionData="rowData" pTemplate="body">
-          <span><a href="#">{{promotionData[col.field]}}</a></span>
-          </template>
-      </p-column>
-      <p-column field="revenue_forecast" header="Revenue Forecast" ></p-column>
-      <p-column field="unit_forecast" header="Unit Forecast" ></p-column>
-      <p-column field="last_updated" header="Last Updated" ></p-column>
-      <p-column field="priority" header="Priority" ></p-column>
+
+      <p-column field="description" header="Description" ></p-column>
+
+      <p-column field="startDate" header="Start Date" ></p-column>
+      
+      <p-column field="endDate" header="End Date" ></p-column>
+      
       <p-column field="status" header="Status" hidden="true" ></p-column>
    
    
