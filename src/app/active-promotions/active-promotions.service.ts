@@ -4,19 +4,19 @@ import {PromotionService} from '../shared/promotion.service';
 @Injectable()
 export class ActivePromotionsService {
   
-  PROMOTIONS: Promotion[];
+  activePromotions: Promotion[]=[];
   cols:Object[];
+  
 
-  constructor(private promotionService:PromotionService) { }
-
-  getPromotions(): Promotion[]{
-   this.PROMOTIONS=this.promotionService.getPromotions();
-   return this.PROMOTIONS;
+  constructor(private promotionService:PromotionService) { 
+    console.log('in active promotion service');
   }
+
+  
 
    getColumnHeaders(): Object[]{
     this.cols= [
-            {field:'check_box'},
+          
             {field: 'promotionName', header: 'Promotion'},
             {field:'description', header:'Description'},
             {field: 'startDate', header: 'Start Date'},
@@ -24,9 +24,33 @@ export class ActivePromotionsService {
             {field:'status', header:'Status'}
          ];
 
+         console.log('in get coloumns of promotions');
+
       return this.cols;
   }
 
+getActivePromotions():Promotion[]{
+
+  
+
+ let  promotions:Promotion[];
+ promotions=this.promotionService.getPromotions();
+
+ console.log(promotions);
+
+for(let i=0,y=0;i<promotions.length;i++)
+{
+  if(promotions[i]["status"]==="A")
+  {
+    this.activePromotions[y++]=promotions[i];
+    
+  }
+}
+console.log('in get active promotions');
+return this.activePromotions;
+
+
+};
 
 
 }

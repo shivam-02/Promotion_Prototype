@@ -6,7 +6,7 @@ import { Promotion } from '../shared/promotion';
 export class UpcomingPromotionsService {
    PROMOTIONS: Promotion[];
    cols:Object[];
-   displayPromotions: Promotion[];
+   displayPromotions: Promotion[]=[];
 
   constructor(private promotionService: PromotionService) { }
 
@@ -29,7 +29,7 @@ export class UpcomingPromotionsService {
   }
 
   getDisplayPromotions(status:string): Promotion[]{
-    this.displayPromotions=[];
+    
     let j=0;
     for(let i=0; i<this.PROMOTIONS.length; i++)
       {
