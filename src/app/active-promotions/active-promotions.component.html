@@ -5,13 +5,18 @@
     </md-card-title>
 
     <md-card-content class="activePromotionsCardContent">
-
-      <p-dataTable [value]="activePromotions">
-    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header">
-        
-        </p-column> 
-  
-  </p-dataTable>
+    <table class="dataTable">
+         <tr >
+         <th *ngFor="let col of cols">{{col.header}}</th>
+         </tr>
+       <tr *ngFor="let promotion of activePromotions">
+       <td>{{promotion.promotionName}}</td>
+       <td>{{promotion.description}}</td>
+       <td>{{promotion.startDate}}</td>
+       <td>{{promotion.endDate}}</td>
+       <td>{{promotion.status}}</td>
+       </tr>
+    </table>
 
     </md-card-content>
 

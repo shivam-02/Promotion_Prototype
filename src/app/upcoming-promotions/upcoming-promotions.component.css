@@ -1,29 +1,5 @@
 
-@media only screen and (max-width: 700px) {
-    /* For mobile phones: */
-.upcomingPromotionsPieChart{
 
-    width:100%;
-    height: 100%;
-    }
-}
-
-@media only screen and (min-width: 550px) {
-    /*for tablet screens */
-    .upcomingPromotionsPieChart { 
-        height: 40%;
-        width:  40%;
-      
-}
-}
-@media only screen and (min-width: 768px) {
-    /*for desktop screens */
-    .upcomingPromotionsPieChart { 
-        height: 25%;
-        width:  25%;
-      
-}
-}
 
 .upcomingPromotionTitle{
     font-weight:bold; 
@@ -41,21 +17,33 @@
     margin-right: 2%
 }
 
-.upcomingPromotionsCheckboxSpam{
+.upcomingPromotionsCheckboxSpan{
     margin:auto; 
     display:table;
 }
-/*@media only screen and (min-width: 500px) {
-    /*for desktop screens 
-    .pieChart { 
-        height: 40%;
-        width:  40%;
-      
+
+
+
+
+.dataTable{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
-}*/
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+   
+}
 
+th{  
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color:#f6f6f6;
+}
 
-
-
-
-
+tr:nth-child(odd) {
+     background-color:#f6f6f6;
+}
