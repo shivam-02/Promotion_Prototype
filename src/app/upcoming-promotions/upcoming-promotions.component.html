@@ -1,65 +1,49 @@
+
 <div class="card-container">
      
-    <md-card>
-       
-     <md-card-title class="upcomingPromotionTitle">Upcoming Promotions</md-card-title> 
+  <md-card>
+    
+     <md-card-title class="upcomingPromotionTitle">Upcoming Promotions</md-card-title>
+     <div class="flex-container" fxLayout="row" fxLayoutWrap="wrap">
+    
+      <div  fxFlex="50%">   
+           <md-card>
+                <md-card-content >
+              <div  id="chartContainer"></div>
+             </md-card-content>
+             </md-card> 
+             </div>
+             <div fxFlex="50%">
+
+             <md-card >
+                 <md-card-actions class="upcomingPromotionsSummaryButtons" >
+            <button md-button>SUBMIT</button>
+            <button md-button>APPROVE</button>
+            <button md-button>REJECT</button>
+            <button md-button>COMPARE</button>
+            <button md-button>SUMMARY</button>
+         </md-card-actions>
      
-     <div class="upcomingPromotionsPieChart">
-      <p-chart type="pie" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
-     </div>
-
-
-
-
-     <md-card-actions class="upcomingPromotionsSummaryButtons" >
-
-
-      <button md-button>SUBMIT</button>
-      <button md-button>APPROVE</button>
-      <button md-button>REJECT</button>
-      <button md-button>COMPARE</button>
-      <button md-button>SUMMARY</button>
-      </md-card-actions>
-     
-     <md-card-content class="upcomingPromotionsCardContent">
+     <md-card-content >
         
-      <p-dataTable [value]="displayPromotions" [rows]="10" [paginator]="true" *ngIf="promotions[status]==status">
+     <table class="dataTable">
+         <tr >
+         <th *ngFor="let col of cols">{{col.header}}</th>
+         </tr>
+       <tr *ngFor="let promotion of displayPromotions">
+        <td><span class="upcomingPromotionsCheckboxSpam"><md-checkbox></md-checkbox></span></td>
+       <td>{{promotion.promotionName}}</td>
+       <td>{{promotion.description}}</td>
+       <td>{{promotion.startDate}}</td>
+       <td>{{promotion.endDate}}</td>
+       </tr>
+    </table>
 
-      <p-column field="check_box" >
-          <template pTemplate="body">
-          <span class="upcomingPromotionsCheckboxSpam"> <md-checkbox></md-checkbox></span>
-          </template>
-      </p-column>
-      <p-column field="promotionName" header="Promotion Name"  >
-          <template let-col let-promotionData="rowData" pTemplate="body">
-          <span><a href="#">{{promotionData[col.field]}}</a></span>
-          </template>
-      </p-column>
+      </md-card-content>
+                 </md-card>
+                </div> 
+         </div>
 
-      <p-column field="description" header="Description" ></p-column>
+  </md-card>
+  </div>
 
-      <p-column field="startDate" header="Start Date" ></p-column>
-      
-      <p-column field="endDate" header="End Date" ></p-column>
-      
-      <p-column field="status" header="Status" hidden="true" ></p-column>
-   
-   
-   
-    <!-- <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header">
-      <template *ngIf="col.field=='status'" hidden="true"></template>
-      <template *ngIf="col.field=='check_box'"  pTemplate="body">
-         <span style="margin:auto; display:table;"> <md-checkbox></md-checkbox></span>
-        </template>
-     <template *ngIf="col.field=='promotion_name'" let-promotionData="rowData" pTemplate="body">
-            <span><a href="#">{{promotionData[col.field]}}</a></span>
-        </template>
-     </p-column>-->
-     
-     </p-dataTable>
-     </md-card-content>
-     
-   
- </md-card>
-</div>
- 

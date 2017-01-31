@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-
+ //TODO Remove this object array according to our functionalities
   views: Object[] = [
     {
       name: 'Home',
@@ -28,4 +28,9 @@ export class AppComponent {
      
     }
   ];
+  
+  //TODO Add signOut while implementing Oauth
+  /*signOut():void{
+
+  }*/
 }

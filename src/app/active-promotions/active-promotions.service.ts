@@ -9,7 +9,7 @@ export class ActivePromotionsService {
   
 
   constructor(private promotionService:PromotionService) { 
-    console.log('in active promotion service');
+    
   }
 
   
@@ -29,9 +29,9 @@ export class ActivePromotionsService {
       return this.cols;
   }
 
-getActivePromotions():Promotion[]{
 
-  
+// TODO Return Promise instead of DisplayPromotions Array
+getActivePromotions():Promotion[]{
 
  let  promotions:Promotion[];
  promotions=this.promotionService.getPromotions();
@@ -46,9 +46,8 @@ for(let i=0,y=0;i<promotions.length;i++)
     
   }
 }
-console.log('in get active promotions');
-return this.activePromotions;
 
+return this.activePromotions;
 
 };
 

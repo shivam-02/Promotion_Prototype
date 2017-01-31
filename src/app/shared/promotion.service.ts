@@ -8,6 +8,7 @@ export class PromotionService {
  PROMOTIONS:Promotion[];
 
   constructor() { 
+      //TODO Remove hardcoded PROMOTIONS Array
     this.PROMOTIONS= [
          {
             promotionName:'Promo 557',
@@ -58,11 +59,61 @@ export class PromotionService {
              status: 'P'
             
          },
+         {
+             promotionName:'Promo 432',
+            description: 'abcd',
+             startDate: '19-2-2016',
+             endDate: '15-8-2017',
+             status: 'P'
+            
+         },
+         {
+             promotionName:'Promo 578',
+            description: 'abcd',
+             startDate: '19-2-2016',
+             endDate: '15-8-2017',
+             status: 'P'
+            
+         },
+         {
+             promotionName:'Promo 265',
+            description: 'abcd',
+             startDate: '19-2-2016',
+             endDate: '15-8-2017',
+             status: 'P'
+            
+         },
+         {
+            promotionName:'Promo 132',
+            description: 'abcd',
+             startDate: '29-12-2016',
+             endDate: '15-8-2017',
+             status: 'A'
+             
+         },
+         {
+            promotionName:'Promo 342',
+            description: 'abcd',
+             startDate: '29-12-2016',
+             endDate: '15-8-2017',
+             status: 'A'
+             
+         },
+         {
+            promotionName:'Promo 909',
+            description: 'abcd',
+             startDate: '29-12-2016',
+             endDate: '15-8-2017',
+             status: 'A'
+             
+         }
 		 
 		 
      ];
   }
-
+  
+   //TODO Get Promotions data from database
+   // TODO Return Promise instead of Promotions Array
    getPromotions(): Promotion[]{
     
     return this.PROMOTIONS;
