@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import {UpcomingPromotionsService} from './upcoming-promotions.service';
 import {Promotion} from '../shared/promotion';
 //import * as d3 from 'd3';
@@ -74,7 +74,7 @@ export class UpcomingPromotionsComponent implements OnInit {
  
 
   
-  constructor(private upcomingPromotionsService: UpcomingPromotionsService) {
+  constructor(private upcomingPromotionsService: UpcomingPromotionsService, private _ngZone: NgZone) {
     
        }
 
@@ -120,19 +120,20 @@ selectData(value){
     {
       case 0:
       this.displayPromotions=this.upcomingPromotionsService.getDisplayPromotions('N');
+      this._ngZone.run(() => {});
       
       break;
       case 1:
       this.displayPromotions=this.upcomingPromotionsService.getDisplayPromotions('P');
-      
+      this._ngZone.run(() => {});
       break; 
       case 2:
       this.displayPromotions=this.upcomingPromotionsService.getDisplayPromotions('R');
-      
+      this._ngZone.run(() => {});
       break;
       case 3:
       this.displayPromotions=this.upcomingPromotionsService.getDisplayPromotions('A');
-     
+      this._ngZone.run(() => {});
       break;
     }
   }
